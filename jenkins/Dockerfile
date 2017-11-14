@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/openshift3/jenkins-1-rhel7:latest
+FROM registry.access.redhat.com/openshift3/jenkins-1-rhel7
 
 ADD config-cloud.xml credentials.xml /opt/openshift/
 
@@ -10,6 +10,7 @@ RUN mkdir -p /opt/openshift/plugins && \
 		  curl -sSL -f https://updates.jenkins-ci.org/download/plugins/credentials/1.24/credentials.hpi -o /opt/openshift/plugins/credentials.jpi && \
 		  curl -sSL -f https://updates.jenkins-ci.org/download/plugins/kubernetes/0.5/kubernetes.hpi -o /opt/openshift/plugins/kubernetes.jpi && \
 		  touch /opt/openshift/plugins/credentials.jpi.pinned && \
+		  cp /opt/openshift/configuration/config.xml.tpl /opt/openshift/configuration/config.xml &&\
 		  sed -i "s|<slaveAgentPort>.*</slaveAgentPort>|<slaveAgentPort>50000</slaveAgentPort>|" "/opt/openshift/configuration/config.xml" && \
 		  sed -i "s|<numExecutors>.*</numExecutors>|<numExecutors>0</numExecutors>|" "/opt/openshift/configuration/config.xml" && \
 		  sed -i "/<slaves\/>/r /opt/openshift/config-cloud.xml" "/opt/openshift/configuration/config.xml" && \
