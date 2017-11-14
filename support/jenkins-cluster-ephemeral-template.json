@@ -37,7 +37,7 @@
 		        "name": "centos"
 		    },
 			"spec": {
-				"dockerImageRepository": "docker.io/library/centos/centos7"
+				"dockerImageRepository": "docker.io/centos"
 			}
 		},
 		{
@@ -173,7 +173,7 @@
                     "dockerStrategy": {
                         "from": {
                             "kind": "ImageStreamTag",
-                            "name": "rhel7:latest"
+                            "name": "centos:latest"
                         }
                     }
                 },
@@ -445,7 +445,7 @@
         {
             "name": "GIT_REF",
             "description": "Git Branch",
-            "value": "master"
+            "value": "rhel_to_centos"
         },
         {
             "name": "EXECUTORS",

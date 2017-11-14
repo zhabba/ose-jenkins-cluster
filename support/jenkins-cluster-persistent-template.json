@@ -34,10 +34,10 @@
 		    "kind": "ImageStream",
 		    "apiVersion": "v1",
 		    "metadata": {
-		        "name": "rhel7"
+		        "name": "centos"
 		    },
 			"spec": {
-				"dockerImageRepository": "registry.access.redhat.com/rhel7/rhel"
+				"dockerImageRepository": "docker.io/centos"
 			}
 		},
 		{
@@ -173,7 +173,7 @@
                     "dockerStrategy": {
                         "from": {
                             "kind": "ImageStreamTag",
-                            "name": "rhel7:latest"
+                            "name": "centos:latest"
                         }
                     }
                 },
@@ -457,12 +457,12 @@
         {
             "name": "GIT_URI",
             "description": "Git Repository",
-            "value": "https://github.com/sabre1041/ose-jenkins-cluster.git"
+            "value": "https://github.com/zhabba/ose-jenkins-cluster.git"
         },
         {
             "name": "GIT_REF",
             "description": "Git Branch",
-            "value": "master"
+            "value": "rhel_to_centos"
         },
         {
             "name": "EXECUTORS",
